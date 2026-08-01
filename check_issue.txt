@@ -1,0 +1,56 @@
+This image shows a **broken UI element** displaying **raw HTML code** instead of properly formatted text. Here's the detailed breakdown:
+
+## What You're Seeing
+- **Text content**: `23/span>SOLVED`
+- **Colors**: "23" is purple/violet; "SOLVED" is light gray; "/span>" appears in the same purple color as "23"
+- **Background**: Dark (near-black)
+- **Context**: Likely a **progress tracker, challenge counter, or status badge** (common on coding portfolios, GitHub profiles, or gamified learning platforms)
+
+## What's Broken (Critical Issue)
+
+**🔴 Unrendered HTML Tag Leak**
+The element is displaying the literal string **`/span>`** which is clearly an **unclosed or malformed HTML `<span>` tag** that failed to render properly.
+
+### Specific Problems:
+
+1. **Visible Markup Syntax**
+   - Shows: `23/span>SOLVED`
+   - Should probably show: **`23 SOLVED`** or **`23 / SOLVED`** or styled as separate elements
+
+2. **Likely Root Causes:**
+   - **JSX/React Error**: Someone wrote `23/span>SOLVED` instead of `<span>23</span> SOLVED`
+   - **Template Literal Mistake**: Improper string interpolation (e.g., `` `23/${status}` `` where status contained raw HTML)
+   - **Escaping Failure**: The code didn't properly close the span tag before the word "SOLVED"
+   - **CSS-in-JS issue**: A styled-component or CSS module that injected the tag incorrectly
+
+3. **Layout Impact:**
+   - The forward slash and angle brackets are creating visual noise
+   - The word "SOLVED" may not be receiving its intended styling (it appears gray, possibly defaulting to a fallback style because it's outside the broken span)
+
+## How to Fix It
+
+**If this is React/JSX:**
+```jsx
+// ❌ Broken (current state)
+<span>23/span>SOLVED</span>
+
+// ✅ Fix option 1: Separate spans
+<span>23</span> <span className="solved">SOLVED</span>
+
+// ✅ Fix option 2: Single styled container
+<span>23 <span className="text-gray">SOLVED</span></span>
+```
+
+**If this is plain HTML/CSS:**
+```html
+<!-- ❌ Broken -->
+<span>23<span>>SOLVED</span>  <!-- Missing closing tag -->
+
+<!-- ✅ Fixed -->
+<span class="count">23</span><span class="label">SOLVED</span>
+```
+
+**If this is a dynamic value:**
+Ensure you're not concatenating strings with HTML tags without proper parsing, or use `dangerouslySetInnerHTML` only if necessary (with proper sanitization).
+
+**Verdict:** This is definitely a **website/portfolio component** (likely a coding stats badge) suffering from a **syntax/rendering bug** where HTML markup is bleeding into the visible text content.
