@@ -1,0 +1,73 @@
+Based on the image provided, here is a detailed analysis of every visible card, its icon status, and the critical issues affecting them:
+
+## **Overall Problem: Complete Icon Failure**
+**All icons are broken.** Instead of displaying proper logos, brand marks, or vector icons for each technology, the interface is rendering **mojibake** (garbled text/corrupted character encoding). This indicates a **critical failure in the icon font loading system** (likely Font Awesome, Material Design Icons, or a custom icon font) where the Unicode characters are being interpreted as raw text rather than rendered as glyphs.
+
+---
+
+## **Card-by-Card Breakdown**
+
+### **Row 1: Security Testing Tools**
+
+| Card | Intended Tool | Broken Icon Display | Issue |
+|------|--------------|---------------------|-------|
+| **Card 1** | **Burp Suite** | `öÝ"` | Shows garbled Latin-1/Unicode characters with umlauts and quotes |
+| **Card 2** | **Nuclei** | `öÝ$-` | Displays corrupted text with dollar sign and hyphen |
+| **Card 3** | **Subfinder** | `öŸE` | Shows mixed accented characters |
+| **Card 4** | **ffuf** | `öÝ'¥` | Renders as random symbols including yen sign |
+
+### **Row 2: Reconnaissance Tools**
+
+| Card | Intended Tool | Broken Icon Display | Issue |
+|------|--------------|---------------------|-------|
+| **Card 5** | **httpx** | `öÝ"i` | Displays umlaut-O followed by quote and i |
+| **Card 6** | **gau** | `öÝ"—` | Shows em-dash corruption |
+| **Card 7** | **katana** | `öÝ•ï,` | Bullet points and commas visible instead of logo |
+| **Card 8** | **Assetfinder** | `öÝ—öi,` | Multiple corrupted Unicode sequences |
+
+### **Row 3: Analysis & Exploitation**
+
+| Card | Intended Tool | Broken Icon Display | Issue |
+|------|--------------|---------------------|-------|
+| **Card 9** | **Wireshark** | `öÝ"Š` | Caron/S-háček character visible |
+| **Card 10** | **Nmap** | `âš"i,` | Circumflex-a and caron-s (different encoding error pattern) |
+| **Card 11** | **Metasploit** | `öŸž-` | **Note:** This card has a **blue highlight border** indicating selection/hover state, but icon remains broken (`öŸž-`) |
+| **Card 12** | **Custom Scripts** | `öÝ> i,` | Greater-than symbol mixed with text |
+
+### **Infrastructure & DevOps Section**
+
+| Card | Intended Tool | Broken Icon Display | Issue |
+|------|--------------|---------------------|-------|
+| **Card 13** | **Docker** | `öÝ 3` (inside rounded square) | Partially renders container shape but with internal text corruption; shows "88%" proficiency |
+| **Card 14** | **PostgreSQL** | `öÝ— ï,` | Two-line corruption with em-dash; shows "85%" proficiency |
+
+---
+
+## **What Needs to Be Fixed & Why**
+
+### **1. ALL 14 Icons Require Immediate Fixing**
+Every single icon asset is failing to load. This is not isolated to one or two icons—it is a **systemic failure** affecting the entire iconography system.
+
+### **2. Root Causes to Address:**
+
+**Primary Suspect: Missing Icon Font File**
+- The pattern suggests use of an icon font (like Font Awesome, Devicons, or Simple Line Icons) where CSS classes map to private-use Unicode characters (e.g., `\fXXX`)
+- **Fix:** Ensure the `.woff2`, `.woff`, or `.ttf` font file is correctly referenced in `@font-face` declarations and the file path is accessible
+
+**Secondary Suspect: Character Encoding Mismatch**
+- The specific characters shown (`ö`, `Ý`, `š`, `€`) suggest UTF-8 bytes being interpreted as ISO-8859-1 or Windows-1252
+- **Fix:** Ensure `<meta charset="UTF-8">` is present, and server headers specify `Content-Type: text/html; charset=utf-8`
+
+**Tertiary Suspect: CDN/Asset Loading Failure**
+- If using external icon libraries (CDN), the request may be blocked by CORS, ad-blockers, or network issues
+- **Fix:** Check browser console for 404 errors on font files; consider self-hosting icons
+
+### **3. Specific Attention Required:**
+- **Metasploit Card**: Currently has active focus state (blue border) but no visual icon feedback—user experience confusion
+- **Docker Card**: Appears to have a background container element working, but the inner glyph is corrupted—suggests partial loading or fallback failure
+- **Nmap Card**: Shows different corruption pattern (`âš` vs `öÝ`) suggesting possible inconsistent encoding sources or copy-paste errors in the HTML/CSS
+
+### **4. Recommended Solution:**
+Replace the icon font system with **SVG inline icons** or **PNG/WebP images** for these specific security tools, as icon fonts are prone to FOIT (Flash of Invisible Text) and encoding failures. Alternatively, fix the `@font-face` declaration to properly load the cybersecurity icon set (likely [Devicons](https://devicon.dev/) or similar).
+
+**Current State Assessment:** The portfolio appears unprofessional and broken. A recruiter or client viewing this would see gibberish instead of recognizable technology logos (the whale for Docker, the shark fin for Wireshark, the spider for Burp Suite, etc.), severely undermining credibility.
