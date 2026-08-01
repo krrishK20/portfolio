@@ -1,0 +1,59 @@
+This image displays a developer profile dashboard containing **LeetCode statistics** and **GitHub activity** for the user **krrishx45**. Here is a detailed breakdown of all visible data:
+
+## 🟢 LeetCode Statistics
+
+### Profile Overview
+- **Username:** krrishx45
+- **Global Rank:** 5,000,001
+- **Percentile:** Top 0%
+
+### Problem Solving Progress
+- **Total Problems Solved:** **2** out of **4,005** (displayed as a circular progress indicator with minimal fill)
+  
+**Breakdown by Difficulty:**
+| Difficulty | Solved | Total | Beat Rate |
+|------------|--------|-------|-----------|
+| **Easy** | 2 | 956 | Beats 0% |
+| **Medium (Med)** | 0 | 2,091 | Beats 0% |
+| **Hard** | 0 | 958 | Beats 0% |
+
+### Activity Metrics
+- **Submissions (last year):** 4
+- **Total Active Days:** 2
+- **Maximum Streak:** 1 day
+
+### Submission Heatmap Graph
+- **Time period:** August → July (12-month rolling calendar)
+- **Visual:** Grid of squares where color intensity indicates activity level
+- **Activity spots visible:**
+  - **August:** 1 dark green square (indicating 1+ submissions)
+  - **March/April:** 1 light green square
+  - All other months appear empty/light gray (no activity)
+
+---
+
+## 🐙 GitHub Statistics
+
+### Contribution Summary
+- **Total Contributions (last year):** **41**
+- **Total Repositories:** **10**
+
+### Contribution Graph (Heatmap)
+- **Time period:** August → July (12-month view)
+- **Visible activity pattern:**
+  - **August:** 1 contribution (light green square)
+  - **January:** 1 contribution (light green square)
+  - **April:** 2-3 contributions (medium green squares clustered)
+  - **July:** ~6-8 contributions (multiple dark green squares indicating higher activity—appears to be the most active month)
+
+### Interface Elements
+- **Pinned Repositories:** Dropdown menu available (collapsed)
+- Action icons present: Refresh/sync button and Delete/trash button (top right of each card)
+
+---
+
+## Key Observations
+- This appears to be a **beginner profile** with minimal activity (only 2 solved LeetCode problems, both Easy difficulty)
+- The user has sporadic activity across both platforms, with slightly more consistent GitHub usage in recent months (July shows the highest concentration of commits)
+- The rank of 5,000,001 suggests this is either a placeholder value or indicates very low competitive standing on LeetCode
+- Both platforms show the same 12-month calendar grid format for tracking activity consistency

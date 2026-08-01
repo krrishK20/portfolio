@@ -1,5 +1,5 @@
-/* ============================================
-   Krrish Molla — Portfolio v4
+﻿/* ============================================
+   Krrish Molla â€” Portfolio v4
    Professional Skills Matrix Edition
    ============================================ */
 
@@ -261,4 +261,299 @@ img,svg { display:block; max-width:100%; }
 @media (max-width:480px) {
   .hero-actions { flex-direction:column; }
   .env-grid,.tools-grid,.contact-grid { grid-template-columns:1fr; }
+}
+
+
+/* ============================================
+   Coding Activity â€” LeetCode & GitHub Stats
+   ============================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stats-card {
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 0%, rgba(124, 111, 247, 0.06), transparent 60%);
+  z-index: 0;
+}
+
+.stats-card:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(124, 111, 247, 0.06);
+  transform: translateY(-3px);
+}
+
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-card-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stats-card-logo.lc {
+  background: rgba(255, 161, 22, 0.12);
+  border: 1px solid rgba(255, 161, 22, 0.3);
+  color: #FFA116;
+}
+
+.stats-card-logo.gh {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f0f0f5;
+}
+
+.stats-card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.stats-card-username {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.stats-card-badge {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-github-badge {
+  margin-left: auto;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.stats-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Metrics row */
+.stats-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-metric {
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.stats-metric-value {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+.stats-metric-label {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Difficulty rows (LeetCode) */
+.stats-difficulty {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.diff-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.diff-label {
+  width: 60px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.easy-bg {
+  background: rgba(0, 175, 155, 0.15);
+  border: 1px solid rgba(0, 175, 155, 0.3);
+  color: #00AF9B;
+}
+
+.med-bg {
+  background: rgba(255, 184, 0, 0.15);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+  color: #FFB800;
+}
+
+.hard-bg {
+  background: rgba(239, 71, 67, 0.15);
+  border: 1px solid rgba(239, 71, 67, 0.3);
+  color: #EF4743;
+}
+
+.diff-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.diff-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 8px currentColor;
+}
+
+.easy-fill { background: #00AF9B; box-shadow: 0 0 8px rgba(0, 175, 155, 0.4); }
+.med-fill { background: #FFB800; box-shadow: 0 0 8px rgba(255, 184, 0, 0.4); }
+.hard-fill { background: #EF4743; box-shadow: 0 0 8px rgba(239, 71, 67, 0.4); }
+
+.diff-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  width: 65px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Profile link */
+.stats-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.4rem 0;
+  transition: all var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+.stats-card-link:hover {
+  border-color: var(--accent);
+  gap: 0.6rem;
+}
+
+/* GitHub stats images */
+.github-stats-img {
+  margin-bottom: 0.75rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.github-stats-img img,
+.github-langs-img img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-sm);
+}
+
+.github-langs-img {
+  margin-bottom: 1rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Snake / Contribution Section */
+.stats-contrib-section {
+  margin-top: 2rem;
+}
+
+.github-snake {
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.snake-svg {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+}
+
+
+
+
+/* Diff bars: ensure visible minimum when > 0 */
+.diff-bar-fill[data-width]:not([data-width="0"]):not([data-width="0%"]) {
+  min-width: 3px !important;
 }

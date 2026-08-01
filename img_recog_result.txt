@@ -1,0 +1,12 @@
+﻿python : Traceback (most recent call last):
+At line:1 char:74
++ ... cognition"; python image-recognition.py "https://autoglm-oss.z.ai/aut ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\krris\.openclaw-autoclaw\skills\autoglm-image-recognition\image-recognition.py", line 63, in <module>
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "encodings\cp1252.py", line 19, in encode
+UnicodeEncodeError: 'charmap' codec can't encode character '\u21bb' in position 410: character maps to <undefined>

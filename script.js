@@ -1,6 +1,6 @@
-// ============================================
-// Krrish Molla — Portfolio v4
-// 3D Tilt · Parallax · Particles · Skill Bars
+﻿// ============================================
+// Krrish Molla â€” Portfolio v4
+// 3D Tilt Â· Parallax Â· Particles Â· Skill Bars
 // ============================================
 
 (function(){'use strict';
@@ -90,7 +90,7 @@
   }
 
   function initSkillBars(){
-    var bars=document.querySelectorAll('.skill-bar-fill,.tool-bar-fill');
+    var bars=document.querySelectorAll('.skill-bar-fill,.tool-bar-fill,.diff-bar-fill');
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.style.width=entry.target.getAttribute('data-width');obs.unobserve(entry.target);}});},{threshold:0.3});
     bars.forEach(function(b){b.style.width='0%';obs.observe(b);});
   }
@@ -112,3 +112,4 @@
 
   initLoader();initParticles();initParallax();initTilt();initProjectGlow();initNavbar();initMobileMenu();initActiveNav();initSkillBars();initScrollReveal();initSmoothScroll();
 })();
+
