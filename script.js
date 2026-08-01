@@ -113,3 +113,12 @@
   initLoader();initParticles();initParallax();initTilt();initProjectGlow();initNavbar();initMobileMenu();initActiveNav();initSkillBars();initScrollReveal();initSmoothScroll();
 })();
 
+
+function refreshLeetCode(e){
+  var btn=e.currentTarget||e.target.closest('.lc-refresh-btn');
+  if(!btn)return;
+  btn.classList.add('spinning');
+  var img=document.getElementById('lcStatsImg');
+  if(img){img.src=img.src.split('?')[0]+'?v='+Date.now();}
+  setTimeout(function(){btn.classList.remove('spinning');},1000);
+}

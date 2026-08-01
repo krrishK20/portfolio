@@ -558,3 +558,52 @@ img,svg { display:block; max-width:100%; }
   min-width: 3px !important;
 }
 
+
+
+
+/* LeetCode Refresh Button */
+.lc-refresh-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(124, 111, 247, 0.1);
+  border: 1px solid rgba(124, 111, 247, 0.25);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-sans);
+}
+.lc-refresh-btn:hover {
+  background: rgba(124, 111, 247, 0.2);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+.lc-refresh-btn:active {
+  transform: scale(0.95);
+}
+.lc-refresh-btn.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* LeetCode Card Embed */
+.lc-embed {
+  margin-bottom: 1rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.lc-embed-inner {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: rgba(0,0,0,0.2);
+}
+.lc-stats-img {
+  width: 100%;
+  display: block;
+}
